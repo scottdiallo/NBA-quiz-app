@@ -30,11 +30,13 @@ function buildQuestion(num) {
     }
 }
 
+// created a function to hide results button before the end of quiz
 function showResults() {
     if (currentQuestionIndex === 5) {
         $('#results').removeAttr("hidden");
     }
 }
+
 function nextQuestion() {
     $(".allChoices").empty();
     currentQuestionIndex++;
@@ -66,21 +68,17 @@ $(function() {
             correctAnswer = quiz[currentQuestionIndex].choices[correctAnswerIndex];
         console.log(correctAnswer);
 
-        // when user click on the right answer color: green else red.
+        // when user click on the right answer they earn 20 points.
         if (userAnswer === correctAnswer) {
-            $(this).css('background-color', 'green');
             totalScore += 20;
-        } else {
-            $(this).css('background-color', '#fb4a68');
-
         }
-        console.log(totalScore , 'score');
+        // console.log(totalScore , 'score');
         nextQuestion();
     });
 
 
     $('#newGameButton').click(function() {
-        console.log('yes start again');
+        // console.log('yes start again');
 
 
     });
